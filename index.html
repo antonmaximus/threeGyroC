@@ -104,12 +104,12 @@
       </style>
    </head>
    <body>
-      <h1>Device Orientation API</h1>
+      <h1></h1>
       <span id="do-unsupported" class="hidden">deviceorientation event not supported</span>
       <span id="dm-unsupported" class="hidden">devicemotion event not supported</span>
       <span id="cnc-unsupported" class="hidden">compassneedscalibration event not supported</span>
  
-      <div id="do-results">
+      <div id="do-results" class="centerMe">
          <div id="cube" class="cube">
             <div class="face one">1</div>
             <div class="face two">2</div>
@@ -128,7 +128,7 @@
                Position absolute? <span id="is-absolute" class="value">unavailable</span>
             </p>
          </div>
-         <div id="dm-info" class="hidden">
+<!--          <div id="dm-info" class="hidden">
             <p>
                Acceleration:
                (<span id="acceleration-x" class="value">null</span>,
@@ -152,57 +152,53 @@
             <p>
                Interval: <span id="interval" class="value">0</span> milliseconds
             </p>
-         </div>
+         </div> -->
       </div>
  
-      <small class="author">
-         Demo created by <a href="http://www.audero.it">Aurelio De Rosa</a>
-         (<a href="https://twitter.com/AurelioDeRosa">@AurelioDeRosa</a>)
-      </small>
  
       <script>
          if (!window.DeviceOrientationEvent) {
             document.getElementById('do-unsupported').classList.remove('hidden');
          } else {
-            document.getElementById('do-info').classList.remove('hidden');
+            // document.getElementById('do-info').classList.remove('hidden');
  
-            window.addEventListener('deviceorientation', function(event) {
-               document.getElementById('cube').style.webkitTransform =
-               document.getElementById('cube').style.transform =
-                       'rotateX(' + event.beta + 'deg) ' +
-                       'rotateY(' + event.gamma + 'deg) ' +
-                       'rotateZ(' + event.alpha + 'deg)';
+            // window.addEventListener('deviceorientation', function(event) {
+            //    document.getElementById('cube').style.webkitTransform =
+            //    document.getElementById('cube').style.transform =
+            //            'rotateX(' + event.beta + 'deg) ' +
+            //            'rotateY(' + event.gamma + 'deg) ' +
+            //            'rotateZ(' + event.alpha + 'deg)';
  
-               document.getElementById('beta').innerHTML = Math.round(event.beta);
-               document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-               document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-               document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
-            });
+            //    document.getElementById('beta').innerHTML = Math.round(event.beta);
+            //    document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+            //    document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+            //    document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
+            // });
          }
  
          if (!window.DeviceMotionEvent) {
             document.getElementById('dm-unsupported').classList.remove('hidden');
          } else {
-            document.getElementById('dm-info').classList.remove('hidden');
+            // document.getElementById('dm-info').classList.remove('hidden');
  
-            window.addEventListener('devicemotion', function(event) {
-               document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
-               document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
-               document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
+            // window.addEventListener('devicemotion', function(event) {
+            //    document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
+            //    document.getElementById('acceleration-y').innerHTML = Math.round(event.acceleration.y);
+            //    document.getElementById('acceleration-z').innerHTML = Math.round(event.acceleration.z);
  
-               document.getElementById('acceleration-including-gravity-x').innerHTML =
-                       Math.round(event.accelerationIncludingGravity.x);
-               document.getElementById('acceleration-including-gravity-y').innerHTML =
-                       Math.round(event.accelerationIncludingGravity.y);
-               document.getElementById('acceleration-including-gravity-z').innerHTML =
-                       Math.round(event.accelerationIncludingGravity.z);
+            //    document.getElementById('acceleration-including-gravity-x').innerHTML =
+            //            Math.round(event.accelerationIncludingGravity.x);
+            //    document.getElementById('acceleration-including-gravity-y').innerHTML =
+            //            Math.round(event.accelerationIncludingGravity.y);
+            //    document.getElementById('acceleration-including-gravity-z').innerHTML =
+            //            Math.round(event.accelerationIncludingGravity.z);
  
-               document.getElementById('rotation-rate-beta').innerHTML = Math.round(event.rotationRate.beta);
-               document.getElementById('rotation-rate-gamma').innerHTML = Math.round(event.rotationRate.gamma);
-               document.getElementById('rotation-rate-alpha').innerHTML = Math.round(event.rotationRate.alpha);
+            //    document.getElementById('rotation-rate-beta').innerHTML = Math.round(event.rotationRate.beta);
+            //    document.getElementById('rotation-rate-gamma').innerHTML = Math.round(event.rotationRate.gamma);
+            //    document.getElementById('rotation-rate-alpha').innerHTML = Math.round(event.rotationRate.alpha);
  
-               document.getElementById('interval').innerHTML = event.interval;
-            });
+            //    document.getElementById('interval').innerHTML = event.interval;
+            // });
          }
  
          if (!('oncompassneedscalibration' in window)) {
