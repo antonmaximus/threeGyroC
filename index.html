@@ -109,7 +109,7 @@
       <span id="dm-unsupported" class="hidden">devicemotion event not supported</span>
       <span id="cnc-unsupported" class="hidden">compassneedscalibration event not supported</span>
  
-      <div id="do-results" class="centerMe">
+      <div id="do-results">
          <div id="cube" class="cube">
             <div class="face one">1</div>
             <div class="face two">2</div>
@@ -119,17 +119,17 @@
             <div class="face six">6</div>
          </div>
          <div id="do-info" class="hidden">
-            <p>
+<!--             <p>
                Coordinates:
                (<span id="beta" class="value">null</span>,
                <span id="gamma" class="value">null</span>,
                <span id="alpha" class="value">null</span>)
                <br />
                Position absolute? <span id="is-absolute" class="value">unavailable</span>
-            </p>
+            </p> -->
          </div>
-<!--          <div id="dm-info" class="hidden">
-            <p>
+         <div id="dm-info" class="hidden">
+<!--             <p>
                Acceleration:
                (<span id="acceleration-x" class="value">null</span>,
                <span id="acceleration-y" class="value">null</span>,
@@ -151,8 +151,8 @@
             </p>
             <p>
                Interval: <span id="interval" class="value">0</span> milliseconds
-            </p>
-         </div> -->
+            </p> -->
+         </div>
       </div>
  
  
@@ -160,26 +160,26 @@
          if (!window.DeviceOrientationEvent) {
             document.getElementById('do-unsupported').classList.remove('hidden');
          } else {
-            // document.getElementById('do-info').classList.remove('hidden');
+            document.getElementById('do-info').classList.remove('hidden');
  
-            // window.addEventListener('deviceorientation', function(event) {
-            //    document.getElementById('cube').style.webkitTransform =
-            //    document.getElementById('cube').style.transform =
-            //            'rotateX(' + event.beta + 'deg) ' +
-            //            'rotateY(' + event.gamma + 'deg) ' +
-            //            'rotateZ(' + event.alpha + 'deg)';
+            window.addEventListener('deviceorientation', function(event) {
+               document.getElementById('cube').style.webkitTransform =
+               document.getElementById('cube').style.transform =
+                       'rotateX(' + event.beta + 'deg) ' +
+                       'rotateY(' + event.gamma + 'deg) ' +
+                       'rotateZ(' + event.alpha + 'deg)';
  
-            //    document.getElementById('beta').innerHTML = Math.round(event.beta);
-            //    document.getElementById('gamma').innerHTML = Math.round(event.gamma);
-            //    document.getElementById('alpha').innerHTML = Math.round(event.alpha);
-            //    document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
-            // });
+               // document.getElementById('beta').innerHTML = Math.round(event.beta);
+               // document.getElementById('gamma').innerHTML = Math.round(event.gamma);
+               // document.getElementById('alpha').innerHTML = Math.round(event.alpha);
+               // document.getElementById('is-absolute').innerHTML = event.absolute ? "true" : "false";
+            });
          }
  
          if (!window.DeviceMotionEvent) {
             document.getElementById('dm-unsupported').classList.remove('hidden');
          } else {
-            // document.getElementById('dm-info').classList.remove('hidden');
+            document.getElementById('dm-info').classList.remove('hidden');
  
             // window.addEventListener('devicemotion', function(event) {
             //    document.getElementById('acceleration-x').innerHTML = Math.round(event.acceleration.x);
