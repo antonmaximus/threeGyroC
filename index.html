@@ -19,8 +19,14 @@
             margin: 2em auto;
             padding: 0 0.5em;
             font-size: 20px;
+            text-align: : center;
          }
  
+        .message-warnings 
+        {
+          text-align: center;
+        }
+
          h1
          {
             text-align: center;
@@ -105,10 +111,7 @@
    </head>
    <body>
       <h1></h1>
-      <span id="do-unsupported" class="hidden">deviceorientation event not supported</span>
-      <span id="dm-unsupported" class="hidden">devicemotion event not supported</span>
-      <span id="cnc-unsupported" class="hidden">compassneedscalibration event not supported</span>
- 
+
       <div id="do-results">
          <div id="cube" class="cube">
             <div class="face one">1</div>
@@ -155,7 +158,12 @@
          </div>
       </div>
  
- 
+      <div class='message-warnings'>
+        <span id="do-unsupported" class="hidden">deviceorientation event not supported</span>
+        <span id="dm-unsupported" class="hidden">devicemotion event not supported</span>
+        <span id="cnc-unsupported" class="hidden">compassneedscalibration event not supported</span>
+      </div>
+
       <script>
          if (!window.DeviceOrientationEvent) {
             document.getElementById('do-unsupported').classList.remove('hidden');
